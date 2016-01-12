@@ -102,7 +102,6 @@ Example code for basic functions below.
 
 ```
 #include <Arduino.h>
-
 #include <time.h>
 
 void setup() {
@@ -131,13 +130,12 @@ void loop() {
 
   time_t currentTick;     // set up a location for the current time stamp.
 
-  time((time_t *)&currentTick);
+  time((time_t *)&currentTick); // get the current time stamp.
 
   Serial.println(ctime( (time_t *)&currentTick));
 
   delay(2000);
-
-
+}
 ```
 
 
