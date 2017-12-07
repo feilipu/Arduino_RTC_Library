@@ -95,7 +95,7 @@ iso_week_date_r(uint16_t y, uint16_t yday, struct week_date * iso)
         yday += 3;    /* yday of this weeks Thursday */
 
         /* Is this weeks Thursday included in the year? */
-        if (yday > (int) n) {
+        if (yday > n) {
             iso->year++;
             weeknum = 1;
         }
