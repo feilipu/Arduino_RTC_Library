@@ -32,7 +32,7 @@
 	Return a value suitable for use as a FAT file system time stamp.
 */
 
-#include "Arduino_RTC.h"
+#include "AVR_RTC.h"
 
 uint32_t
 system_fatfs(const struct tm * timeptr)

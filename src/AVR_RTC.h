@@ -1,5 +1,5 @@
 /*
- * (C)2020 Phillip Stevens Rice All rights reserved.
+ * (C)2020 Phillip Stevens All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -26,8 +26,8 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-#ifndef ARDUINO_RTC_H
-#define ARDUINO_RTC_H
+#ifndef AVR_RTC_H
+#define AVR_RTC_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -82,4 +82,4 @@ extern "C" {
 }
 #endif
 
-#endif  /* ARDUINO_RTC_H  */
+#endif  /* AVR_RTC_H  */

@@ -6,7 +6,7 @@
 #include <util/atomic.h>
 #include <avr/interrupt.h>
 
-#include "Arduino_RTC.h"
+#include "AVR_RTC.h"
 
 void
 setup_RTC_interrupt( void )
