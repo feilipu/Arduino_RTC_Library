@@ -1,4 +1,4 @@
-This library has been created to provide access to RTC capabilities on AVR devices with the ability to connect a 32kHz watch crystal on Timer 2, such as the Goldilocks ATMega1284p, and the Arduino Mega ATmega2560.
+This library has been created to provide RTC capabilities on AVR devices with the ability to connect a 32kHz watch crystal on Timer 2, such as the Goldilocks ATMega1284p, and the Arduino Mega ATmega2560.
 
 It is not compatible with the Arduino tones.h functions, as the tones library has not been fully implemented to use another timer other than Timer 2.
 
