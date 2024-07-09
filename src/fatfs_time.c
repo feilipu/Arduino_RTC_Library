@@ -29,7 +29,7 @@
 /* $Id$ */
 
 /*
-	Return a value suitable for use as a FAT file system time stamp.
+    Return a value suitable for use as a FAT file system time stamp.
 */
 
 #include "AVR_RTC.h"
@@ -37,63 +37,63 @@
 uint32_t
 system_fatfs(const struct tm * timeptr)
 {
-	uint32_t        ret;
-	uint32_t        n;
+    uint32_t        ret;
+    uint32_t        n;
 
-	n = timeptr->tm_year - 80;
-	n <<= 25;
-	ret = n;
+    n = timeptr->tm_year - 80;
+    n <<= 25;
+    ret = n;
 
-	n = timeptr->tm_mon + 1;
-	n <<= 21;
-	ret |= n;
+    n = timeptr->tm_mon + 1;
+    n <<= 21;
+    ret |= n;
 
-	n = timeptr->tm_mday;
-	n <<= 16;
-	ret |= n;
+    n = timeptr->tm_mday;
+    n <<= 16;
+    ret |= n;
 
-	n = timeptr->tm_hour;
-	n <<= 11;
-	ret |= n;
+    n = timeptr->tm_hour;
+    n <<= 11;
+    ret |= n;
 
-	n = timeptr->tm_min;
-	n <<= 5;
-	ret |= n;
+    n = timeptr->tm_min;
+    n <<= 5;
+    ret |= n;
 
-	ret |= timeptr->tm_sec >> 1;
+    ret |= timeptr->tm_sec >> 1;
 
-	return ret;
+    return ret;
 }
 
 
 /**
     Convert a FAT file system time stamp into a Y2K time stamp.
 
-	wFatDate [in]
-	The MS-DOS date. The date is a packed value with the following format.
-	Bits	Description
-	0-4		Day of the month (1–31)
-	5-8		Month (1 = January, 2 = February, and so on)
-	9-15	Year offset from 1980, subtract 20 to get Y2K year, add 2000 for Gregorian year.
+    wFatDate [in]
+    The MS-DOS date. The date is a packed value with the following format.
+    Bits    Description
+    0-4     Day of the month (1–31)
+    5-8     Month (1 = January, 2 = February, and so on)
+    9-15    Year offset from 1980, subtract 20 to get Y2K year, add 2000 for Gregorian year.
 
-	wFatTime [in]
-	The MS-DOS time. The time is a packed value with the following format.
-	Bits	Description
-	0-4		Second divided by 2
-	5-10	Minute (0–59)
-	11-15	Hour (0–23 on a 24-hour clock)
+    wFatTime [in]
+    The MS-DOS time. The time is a packed value with the following format.
+    Bits    Description
+    0-4     Second divided by 2
+    5-10    Minute (0–59)
+    11-15   Hour (0–23 on a 24-hour clock)
 */
 
 uint32_t
 fatfs_system( uint16_t fsdate, uint16_t fstime, struct tm * timeptr)
 {
-	timeptr->tm_year =          ((fsdate >> 9) & 0x007F) + 80;
-	timeptr->tm_mon =  ((uint8_t)(fsdate >> 5 ) & 0x0F) - 1;
-	timeptr->tm_mday =  (uint8_t) fsdate & 0x1F;
+    timeptr->tm_year =  ((fsdate >> 9) & 0x007F) + 80;
+    timeptr->tm_mon =   ((uint8_t)(fsdate >> 5 ) & 0x0F) - 1;
+    timeptr->tm_mday =  (uint8_t) fsdate & 0x1F;
 
-	timeptr->tm_hour =  (uint8_t)(fstime >> 11) & 0x1F;
-	timeptr->tm_min =   (uint8_t)(fstime >> 5) & 0x3F;
-	timeptr->tm_sec =  ((uint8_t) fstime & 0x001F) << 1;
+    timeptr->tm_hour =  (uint8_t)(fstime >> 11) & 0x1F;
+    timeptr->tm_min =   (uint8_t)(fstime >> 5) & 0x3F;
+    timeptr->tm_sec =   ((uint8_t) fstime & 0x001F) << 1;
 return mktime( timeptr );
 }
 

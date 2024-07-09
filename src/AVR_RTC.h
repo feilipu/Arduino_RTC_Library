@@ -29,11 +29,11 @@
 #ifndef AVR_RTC_H
 #define AVR_RTC_H
 
+#include <time.h>
+
 #ifdef __cplusplus
 extern "C" {
 #endif
-
-#include <time.h>
 
     /**
         The tm structure contains a representation of time 'broken down' into components of the
